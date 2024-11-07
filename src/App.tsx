@@ -27,9 +27,7 @@ const IgCard: React.FC<IgCardProps> = (props) => {
   const [followText, setFollowText] = useState<FollowStatus>(FollowStatus.FOLLOW);
 
   useEffect(() => {
-    setFollowersCount((prevCount) =>
-      followText === FollowStatus.FOLLOW ? prevCount - 1 : prevCount + 1
-    );
+    setFollowersCount(followText === FollowStatus.FOLLOW ? followersCount - 1 : followersCount + 1);
   }, [followText]);
 
   const followUser = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -58,3 +56,4 @@ const IgCard: React.FC<IgCardProps> = (props) => {
 };
 
 export default IgCard;
+
